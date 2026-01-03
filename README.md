@@ -10,8 +10,6 @@ birthday
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap');
 
-* { box-sizing: border-box; }
-
 body {
   margin: 0;
   height: 100vh;
@@ -23,7 +21,6 @@ body {
   overflow: hidden;
 }
 
-/* Card */
 .card {
   background: #ffffffee;
   backdrop-filter: blur(8px);
@@ -36,12 +33,10 @@ body {
   animation: fadeIn 1.2s ease;
 }
 
-/* Text */
 h1 {
   font-family: 'Pacifico', cursive;
   color: #ff5fa2;
   font-size: 2.9rem;
-  margin-bottom: 5px;
 }
 
 .nickname {
@@ -52,25 +47,23 @@ h1 {
 
 p {
   color: #555;
-  font-size: 1rem;
   margin: 14px 0;
 }
 
-/* Buttons */
 button {
   border: none;
   border-radius: 50px;
   padding: 14px 36px;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 18px;
+  margin-top: 16px;
   color: white;
   background: linear-gradient(135deg, #ff7ebc, #ff9fd3);
   box-shadow: 0 18px 35px rgba(255, 140, 190, 0.45);
   transition: transform 0.25s ease;
 }
 
-button:hover { transform: scale(1.1); }
+button:hover { transform: scale(1.08); }
 
 .hidden { display: none; }
 
@@ -81,30 +74,23 @@ button:hover { transform: scale(1.1); }
   margin-top: 16px;
 }
 
-/* Floating elegance */
 .float {
   position: absolute;
   bottom: -40px;
   font-size: 22px;
-  animation: floatUp 10s ease-in infinite;
+  animation: floatUp 9s ease-in infinite;
   opacity: 0.65;
   pointer-events: none;
 }
 
 @keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(0.9);
-    opacity: 0;
-  }
+  0% { transform: translateY(0); opacity: 0; }
   20% { opacity: 0.6; }
-  100% {
-    transform: translateY(-120vh) scale(1.15);
-    opacity: 0;
-  }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(25px); }
   to { opacity: 1; transform: translateY(0); }
 }
 </style>
@@ -113,51 +99,65 @@ button:hover { transform: scale(1.1); }
 <body>
 
 <audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9f9e5b9db6.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9f9e5b9db6.mp3">
 </audio>
 
 <div class="card">
   <h1>Bangaramm 💗</h1>
   <div class="nickname">my Chinmin 🧸</div>
 
-  <p>soft reminder…</p>
-  <p>someone incredibly precious has a birthday coming soon ✨</p>
+  <p>someone very precious has a birthday coming soon ✨</p>
 
   <button onclick="openMagic()">open gently 💗</button>
 
   <div id="magic" class="hidden">
     <p>✨ advance happy birthday ✨</p>
-
     <p>you feel like baby pink.</p>
-    <p>warm. gentle. beautiful.</p>
+    <p>soft. warm. beautiful.</p>
 
-    <p>when I say <b>Chinmin</b>,  
-    my heart smiles first 💕</p>
+    <p class="final">stay just like this… loved 🌸</p>
 
-    <p class="final">
-      stay just like this…  
-      soft and loved 🌸
-    </p>
+    <button onclick="sendKiss()">send me a kiss 😘</button>
+    <p id="kissText" class="hidden">kiss received 😘💗  
+    saving it forever.</p>
   </div>
 </div>
 
 <script>
+let floatingStarted = false;
+
 function openMagic() {
   document.getElementById("magic").classList.remove("hidden");
   document.getElementById("music").play();
-  startFloating();
+
+  if (!floatingStarted) {
+    floatingStarted = true;
+    startFloating();
+  }
+}
+
+function sendKiss() {
+  document.getElementById("kissText").classList.remove("hidden");
+
+  for (let i = 0; i < 6; i++) {
+    createFloat("😘");
+  }
 }
 
 function startFloating() {
   setInterval(() => {
-    const f = document.createElement("div");
-    f.className = "float";
-    f.innerHTML = Math.random() > 0.5 ? "💗" : "😘";
-    f.style.left = (10 + Math.random() * 80) + "vw";
-    f.style.fontSize = (18 + Math.random() * 18) + "px";
-    document.body.appendChild(f);
-    setTimeout(() => f.remove(), 10000);
-  }, 700);
+    createFloat(Math.random() > 0.5 ? "💗" : "😘");
+  }, 900);
+}
+
+function createFloat(symbol) {
+  const f = document.createElement("div");
+  f.className = "float";
+  f.innerHTML = symbol;
+  f.style.left = (10 + Math.random() * 80) + "vw";
+  f.style.fontSize = (18 + Math.random() * 18) + "px";
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 9000);
 }
 </script>
 
