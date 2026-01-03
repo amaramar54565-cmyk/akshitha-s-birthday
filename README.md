@@ -3,96 +3,163 @@ birthday
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, My Love!</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9e6e6;
-            text-align: center;
-            color: #8a2be2;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 3em;
-            color: #ff6347;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.5em;
-            line-height: 1.5;
-            color: #333;
-        }
-        .heart {
-            font-size: 2em;
-            color: #ff69b4;
-            animation: heartBeat 1s infinite;
-        }
-        .countdown {
-            font-size: 2.5em;
-            color: #ff6347;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        @keyframes heartBeat {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinmin 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #ffe3f1, #fff7fb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Card */
+.card {
+  background: #ffffffee;
+  backdrop-filter: blur(8px);
+  border-radius: 40px;
+  padding: 40px;
+  width: 92%;
+  max-width: 460px;
+  text-align: center;
+  box-shadow: 0 40px 90px rgba(255, 150, 200, 0.45);
+  animation: fadeIn 1.2s ease;
+}
+
+/* Text */
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff5fa2;
+  font-size: 2.9rem;
+  margin-bottom: 5px;
+}
+
+.nickname {
+  font-family: 'Pacifico', cursive;
+  color: #ff8fc8;
+  font-size: 1.4rem;
+}
+
+p {
+  color: #555;
+  font-size: 1rem;
+  margin: 14px 0;
+}
+
+/* Buttons */
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 18px;
+  color: white;
+  background: linear-gradient(135deg, #ff7ebc, #ff9fd3);
+  box-shadow: 0 18px 35px rgba(255, 140, 190, 0.45);
+  transition: transform 0.25s ease;
+}
+
+button:hover { transform: scale(1.1); }
+
+.hidden { display: none; }
+
+.final {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+  color: #ff5fa2;
+  margin-top: 16px;
+}
+
+/* Floating elegance */
+.float {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  animation: floatUp 10s ease-in infinite;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0;
+  }
+  20% { opacity: 0.6; }
+  100% {
+    transform: translateY(-120vh) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Happy Birthday, My Love!</h1>
-        <p>
-            To the most amazing person in my life, I want to say I am so thankful for you. You make my world brighter every single day. Even though we had our rough moments, I truly appreciate everything you are, and I want to make this day as special as you are.
-        </p>
-        <p>
-            I am so lucky to have you by my side, and today, I celebrate you, your love, your kindness, and your beauty. ❤️
-        </p>
-        <div class="heart">❤️</div>
-        <p class="countdown" id="countdown"></p>
-    </div>
 
-    <script>
-        // Countdown to her next birthday (adjust the date)
-        const birthday = new Date("2026-01-04T00:00:00"); // Update this date to her next birthday
-        const countdownElement = document.getElementById('countdown');
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9f9e5b9db6.mp3" type="audio/mpeg">
+</audio>
 
-        function updateCountdown() {
-            const now = new Date();
-            const timeDifference = birthday - now;
+<div class="card">
+  <h1>Bangaramm 💗</h1>
+  <div class="nickname">my Chinmin 🧸</div>
 
-            if (timeDifference <= 0) {
-                countdownElement.textContent = "Happy Birthday!";
-                return;
-            }
+  <p>soft reminder…</p>
+  <p>someone incredibly precious has a birthday coming soon ✨</p>
 
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  <button onclick="openMagic()">open gently 💗</button>
 
-            countdownElement.textContent = `Countdown to your special day: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
+  <div id="magic" class="hidden">
+    <p>✨ advance happy birthday ✨</p>
 
-        setInterval(updateCountdown, 1000);  // Update countdown every second
-    </script>
+    <p>you feel like baby pink.</p>
+    <p>warm. gentle. beautiful.</p>
+
+    <p>when I say <b>Chinmin</b>,  
+    my heart smiles first 💕</p>
+
+    <p class="final">
+      stay just like this…  
+      soft and loved 🌸
+    </p>
+  </div>
+</div>
+
+<script>
+function openMagic() {
+  document.getElementById("magic").classList.remove("hidden");
+  document.getElementById("music").play();
+  startFloating();
+}
+
+function startFloating() {
+  setInterval(() => {
+    const f = document.createElement("div");
+    f.className = "float";
+    f.innerHTML = Math.random() > 0.5 ? "💗" : "😘";
+    f.style.left = (10 + Math.random() * 80) + "vw";
+    f.style.fontSize = (18 + Math.random() * 18) + "px";
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 10000);
+  }, 700);
+}
+</script>
+
 </body>
 </html>
